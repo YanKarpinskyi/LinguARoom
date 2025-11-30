@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.choice {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40vw;
+}
+
+.choice > button {
+    background-color: #4A3C2F; 
+    width: 20vw;
+    min-height: 7vw;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+    border: 4px solid #cda094; 
+    border-radius: 10px;
+    color: #f1be3b; 
+    box-shadow: 10px 5px 5px #000000;
+}
+
+.choice > button:hover {
+    cursor: pointer;
+    background-color: #3F2A1B; 
+    border-color: #A66B5C; 
+    color: #cc950a; 
+}
+
+.choice > button:active {
+    transform: translateY(2px);
+    box-shadow: 5px 2px 3px #000000;
+}
+
+#practice {
+    color: #E8D5B0; 
+}
+
+.skill_pointer {
+    position: absolute;
+}
+
+.speech-bubble {
+    position: absolute;
+    background: white;
+    border: 3px solid #695F5F;
+    border-radius: 15px;
+    padding: 15px 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    outline: none;
+    font-family: "Inter", sans-serif;
+    font-size: 40px;
+}
+
+.speech-bubble:hover,
+#write:hover {
+    background: #73441D;
+    color: #d9d9d9;
+}
+
+.speech-bubble:hover::after,
+#write:hover::after {
+    border-top-color: #73441D;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 11%;
+    transform: translateX(-50%);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid white;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -26px;
+    right: 8%;
+    transform: translateX(-50%);
+    border-left: 23px solid transparent;
+    border-right: 23px solid transparent;
+    border-top: 24px solid #695F5F;
+}
+
+#speak {
+    top: 2vw;
+    right: 52vw;
+}
+
+#listen {
+    top: 11vw;
+    right: 27vw;
+}
+
+#read {
+    top: 13.5vw;
+    right: 12vw;
+}
+
+#write {
+    top: 34vw;
+    right: 44vw;
+}
+
+#write::after {
+    bottom: -18px;
+    right: 11%;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 18px solid white;
+}
+
+#write::before {
+    bottom: -22px;
+    right: 6%;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 22px solid #695F5F;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguARoom</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="./img/lr-bg.mp4" type="video/mp4">
+    </video>
+    <audio src="./audio/fireplace.mp3" loop class="bg-sounds"></audio>
+    <audio src="./audio/bg-music.mp3" loop class="bg-sounds"></audio>
+    <button class="speech-bubble" id="speak">
+        Speaking
+    </button>
+    <button class="speech-bubble" id="listen">
+        Listening
+    </button>
+    <button class="speech-bubble" id="read">
+        Reading
+    </button>
+    <button class="speech-bubble" id="write">
+        Writing
+    </button>
+    <div class="choice">
+        <button id="test">Take a level test</button>
+        <button id="do-practice">
+            <span id="practice-intro">Skip the test and</span>
+            <span id="practice">begin practice</span>
+        </button>
+    </div>
+    <script>
+        document.addEventListener("click", () => {
+            document.querySelectorAll(".bg-sounds").forEach(audio => audio.play());
+        }, {once: true});
+    </script>
+</body>
+</html>
