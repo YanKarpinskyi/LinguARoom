@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: "Inter", sans-serif;
+}
+
 #bg-video {
     position: fixed;
     top: 0;
@@ -66,6 +70,7 @@
     outline: none;
     font-family: "Inter", sans-serif;
     font-size: 40px;
+    display: none;
 }
 
 .speech-bubble:hover,
@@ -135,4 +140,212 @@
     border-left: 22px solid transparent;
     border-right: 22px solid transparent;
     border-top: 22px solid #695F5F;
+}
+
+.task {
+    display: none;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: #d3f3fd;
+    width: 45vw;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20vh;
+}
+
+.task-block {
+    margin: auto 0;
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.task-heading {
+    margin: 0;
+    text-align: center;
+    color: #976A17;
+    font-size: 50px;
+}
+
+.task-page {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 25px;
+    font-weight: 600;
+    color: #474531;
+}
+
+.task-content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grammar-sentence {
+    font-size: 40px;
+}
+
+.grammar-variants,
+.place-choice {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.grammar-variants,
+.task-content > input {
+    margin-top: 3%;
+}
+
+.grammar-variant {
+    padding: 8px 15px;
+    border: 3px solid #cda094;
+    background-color: #4A3C2F;
+    color: #f1be3b;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.grammar-variant:hover {
+    cursor: pointer;
+    background-color: #3F2A1B; 
+    border-color: #A66B5C; 
+    color: #cc950a; 
+}
+
+.task-content > input {
+    width: 70%;
+    height: 30px;
+    background-color: #D3CCC8;
+    border: none;
+    border-bottom: 4px solid #6c2d08;
+    font-size: 20px;
+    font-weight: 600;
+    color: #473618;
+    padding: 5px;
+}
+
+.track-manage {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track-on_off {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.track-on_off > img {
+    width: 82px;
+    height: 82px;
+}
+
+.track-on_off > button {
+    flex-grow: 1;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 3px solid #c93107;
+    background-color: #c7a382;
+    color: #47370c;
+    border-radius: 5px;
+}
+
+.track-on_off > button:hover {
+    cursor: pointer;
+    background-color: #3F2A1B; 
+    border-color: #A66B5C; 
+    color: #cc950a;
+}
+
+
+.track-speed {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.track-speed button {
+    padding: 5px 10px;
+    font-size: 20px;
+    font-weight: 500;
+    border: 3px solid #cda094;
+    background-color: #4A3C2F;
+    color: #f1be3b;
+    border-radius: 5px;
+}
+
+.track-speed button:hover {
+    cursor: pointer;
+    background-color: #3F2A1B; 
+    border-color: #A66B5C; 
+    color: #cc950a;
+}
+
+#places-heading {
+    color: #976A17;
+    font-size: 30px;
+    width: 70%;
+}
+
+.place > button {
+    background-color: #4A3C2F; 
+    width: 100px;
+    height: 35px;
+    font-size: 20px;
+    font-weight: 600;
+    border: 2px solid #cda094; 
+    border-radius: 10px;
+    color: #f1be3b; 
+}
+
+
+.place > button:hover {
+    cursor: pointer;
+    background-color: #3F2A1B; 
+    border-color: #A66B5C; 
+    color: #cc950a; 
+}
+
+.place > button:active {
+    background-color: #291b12; 
+}
+
+.any-place {
+    background-color: #bfed53; 
+    width: 140px;
+    height: 40px;
+    font-size: 25px;
+    font-weight: 600;
+    border: 2px solid #cda094; 
+    border-radius: 5px;
+    color: #573519; 
+    margin-top: 20px;
+}
+
+
+.any-place:hover {
+    cursor: pointer;
+    background-color: #3f7133; 
+    border-color: #A66B5C; 
+    color: #ffd260; 
+}
+
+.any-place:active {
+    background-color: #305327; 
+    color: #ffd260; 
 }

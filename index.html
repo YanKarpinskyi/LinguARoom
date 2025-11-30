@@ -11,7 +11,7 @@
 </head>
 <body>
     <video autoplay muted loop playsinline id="bg-video">
-        <source src="./img/lr-bg.mp4" type="video/mp4">
+        <source src="./img/lr-bg.mp4" type="video/mp4" id="bg">
     </video>
     <audio src="./audio/fireplace.mp3" loop class="bg-sounds"></audio>
     <audio src="./audio/bg-music.mp3" loop class="bg-sounds"></audio>
@@ -34,10 +34,86 @@
             <span id="practice">begin practice</span>
         </button>
     </div>
+    <section class="task">
+        <div class="task-block">
+            <div class="task-header">
+                <p class="task-page">1/10</p>
+                <h2 class="task-heading">Grammar</h2>
+            </div>
+            <div class="task-content">
+                <p class="grammar-sentence">She _____ to the store yesterday.</p>
+                <div class="grammar-variants">
+                    <button class="grammar-variant">go</button>
+                    <button class="grammar-variant">goes</button>
+                    <button class="grammar-variant">went</button>
+                    <button class="grammar-variant">going</button>
+                </div>
+            </div>
+            <div class="task-content">
+                <p class="grammar-sentence">If I _____ more time, I would travel the world.</p>
+                <input type="text">
+            </div>
+        </div>
+    </section>
+    <section class="task">
+        <div class="task-block">
+            <div class="task-header">
+                <p class="task-page">1/10</p>
+                <h2 class="task-heading">Listening</h2>
+            </div>
+            <div class="task-content">
+                <div class="track-manage">
+                    <div class="track-on_off">
+                        <img src="./img/track.png" alt="">
+                        <button><img src="./img/track-start.png" alt=""> Start</button>
+                    </div>
+                    <div class="track-speed">
+                        <button>0.5x</button>
+                        <button>1x</button>
+                        <button>2x</button>
+                    </div>
+                </div>
+            </div>
+            <div class="task-content">
+                <p class="grammar-sentence">If I _____ more time, I would travel the world.</p>
+                <input type="text">
+            </div>
+        </div>
+    </section>
+    <section class="task">
+        <div class="task-block">
+            <div class="task-header">
+                <p class="task-page">1/10</p>
+                <h2 class="task-heading" id="places-heading">Circumstances where you’d like to speak</h2>
+            </div>
+            <div class="task-content">
+                <div class="place-choice">
+                    <div class="place">
+                        <img src="./img/cafe.png" alt="">
+                        <button id="cafe-place-btn">Café</button>
+                    </div>
+                    <div class="place">
+                        <img src="./img/airport.png" alt="">
+                        <button id="">Airport</button>
+                    </div>
+                    <div class="place">
+                        <img src="./img/office.png" alt="">
+                        <button id="">Office</button>
+                    </div>
+                    <div class="place">
+                        <img src="./img/hotel.png" alt="">
+                        <button id="">Hotel</button>
+                    </div>
+                </div>
+                <button class="any-place">Whatever</button>
+            </div>
+        </div>
+    </section>
     <script>
         document.addEventListener("click", () => {
             document.querySelectorAll(".bg-sounds").forEach(audio => audio.play());
         }, {once: true});
     </script>
+    <script src="./js/index.js"></script>
 </body>
 </html>
