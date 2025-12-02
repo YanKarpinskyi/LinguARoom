@@ -4,28 +4,10 @@
   "description": "Learn languages in a cozy room",
   "start_url": "/index.html",
   "scope": "/",
-  "display_override": ["standalone", "window-controls-overlay"],
   "display": "standalone",
-  "orientation": "landscape",
   "background_color": "#8acef9",
   "theme_color": "#8acef9",
-  "categories": ["education"],
-  "lang": "en",
-  "screenshots": [
-    {
-      "src": "/assets/screenshots/screen1.png",
-      "sizes": "991x540",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "/assets/screenshots/screen2.png",
-      "sizes": "640x360",
-      "type": "image/png",
-      "form_factor": "narrow"
-    }
-  ],
-  "prefer_related_applications": false,
+  "orientation": "landscape",
   "icons": [
     {
       "src": "/assets/icons/logo192.png",
@@ -36,6 +18,22 @@
       "src": "/assets/icons/logo512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/screenshots/screen1.png",
+      "sizes": "991x540",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "LinguARoom mobile"
+    },
+    {
+      "src": "/assets/screenshots/screen2.png",
+      "sizes": "640x360",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "LinguARoom desktop"
     }
   ]
 }

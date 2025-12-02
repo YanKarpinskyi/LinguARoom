@@ -71,23 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-let deferredPrompt;
+let deferredPrompt = null;
 
-window.addEventListener('DOMContentLoaded', () => {
-  const installBtn = document.getElementById('install-btn');
-
-  window.addEventListener('beforeinstallprompt', (e) => {
+window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('PWA можна встановити!');
     e.preventDefault();
     deferredPrompt = e;
-    installBtn.style.display = 'block';
+});
 
-    installBtn.addEventListener('click', () => {
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(choice => {
-        console.log(choice.outcome);
-        deferredPrompt = null;
-        installBtn.style.display = 'none';
-      });
-    });
-  });
+window.addEventListener('appinstalled', () => {
+    console.log('LinguARoom встановлено як додаток!');
+    deferredPrompt = null;
 });
