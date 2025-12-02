@@ -24,7 +24,7 @@ body {
 }
 
 .book {
-    width: 80vw;
+    width: 65vw;
 
     aspect-ratio: 16 / 10;
 
@@ -42,13 +42,13 @@ body {
     width: 50%;
     height: 100%;
     overflow: hidden;
-    padding: 10px 15px;
+    padding: 10px 20px;
 }
 
 .page p {
     margin: 0 0 14px;
-    line-height: 1.45;
-    font-size: 18px;
+    line-height: 1.5;
+    font-size: 27px;
 }
 
 .left-page {
@@ -82,13 +82,10 @@ body {
 }
 
 .tooltip .btn {
-    display: inline-block;
-    margin: 4px;
-    padding: 4px 8px;
-    background: #eee;
+    background: #fff;
     border-radius: 4px;
     cursor: pointer;
-    border: 1px solid #aaa;
+    border: none;
 }
 
 .tooltip .btn:hover {

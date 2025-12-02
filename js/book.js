@@ -1,9 +1,7 @@
 const text = `
 While the town of Lawrence was undergoing burning and pillage, Governor Shannon wrote to Colonel Sumner to say that as the marshal and sheriff had finished making their arrests, and he presumed had by that time dismissed the posse, he required a company of United States troops to be stationed at Lawrence to secure "the safety of the citizens in both person and property," asking also a like company for Lecompton and Topeka.
-
 The next day the citizens of Lawrence had the opportunity to smother their indignation when they saw the embers of the Free-State Hotel and the scattered fragments of their printing-presses patrolled and "protected" by the Federal dragoons whose presence they had vainly implored a few days before.
-
-It was time the Governor should move. The guerrilla bands with their booty spread over the country, and the`;
+It was time the Governor should move. The guerrilla bands with their booty spread over the country, and the free-State men rose in a`;
 
 const bookText = document.getElementById("bookText");
 const tooltip = document.getElementById("tooltip");
@@ -11,7 +9,7 @@ const tooltip = document.getElementById("tooltip");
 const leftPage = document.getElementById("pageLeft");
 const rightPage = document.getElementById("pageRight");
 
-const paragraphs = text.trim().split(/\n\s*\n/);
+const paragraphs = text.trim().split("\n");
 
 function fillBook() {
   leftPage.innerHTML = "";
@@ -20,15 +18,33 @@ function fillBook() {
   let target = leftPage;
 
   paragraphs.forEach((par) => {
-    const p = document.createElement("p");
-    p.innerHTML = wrapWords(par);
+    let words = par.split(/\s+/);
+    let p = document.createElement("p");
 
     target.appendChild(p);
 
-    if (target.scrollHeight > target.clientHeight) {
-      target.removeChild(p);
-      target = rightPage;
-      rightPage.appendChild(p);
+    for (let w of words) {
+      const span = document.createElement("span");
+      span.className = "word";
+      span.dataset.word = w;
+      span.textContent = w + " ";
+
+      p.appendChild(span);
+
+      if (target.scrollHeight > target.clientHeight) {
+        p.removeChild(span);
+
+        if (p.textContent.trim() === "") {
+          target.removeChild(p);
+        }
+
+        target = rightPage;
+
+        p = document.createElement("p");
+        rightPage.appendChild(p);
+
+        p.appendChild(span);
+      }
     }
   });
 }
@@ -48,12 +64,13 @@ document.addEventListener("click", (e) => {
     const rect = e.target.getBoundingClientRect();
 
     tooltip.innerHTML = `
-            <div class="btn" data-action="explain" data-word="${word}">Explain</div>
-            <div class="btn" data-action="translate" data-word="${word}">Translate</div>
-        `;
+        <button class="btn" data-action="explain" data-word="${word}">Explain</button>
+        |
+        <button class="btn" data-action="translate" data-word="${word}">Translate</button>
+    `;
 
     tooltip.style.left = rect.left + "px";
-    tooltip.style.top = rect.top + 20 + "px";
+    tooltip.style.top = rect.top + 28 + "px";
     tooltip.classList.remove("hidden");
     return;
   }
