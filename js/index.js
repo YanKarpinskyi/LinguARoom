@@ -62,3 +62,11 @@ document.getElementById("cafe-place-btn").addEventListener("click", () => {
         newVideo.style.opacity = "0";
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("landscape").catch(err => {
+            console.log("Orientation lock failed:", err);
+        });
+    }
+});
