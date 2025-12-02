@@ -70,3 +70,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+let deferredPrompt;
+
+window.addEventListener('DOMContentLoaded', () => {
+  const installBtn = document.getElementById('install-btn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.style.display = 'block';
+
+    installBtn.addEventListener('click', () => {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then(choice => {
+        console.log(choice.outcome);
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+      });
+    });
+  });
+});
