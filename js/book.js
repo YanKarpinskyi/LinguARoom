@@ -11,7 +11,6 @@ const tooltip = document.getElementById("tooltip");
 const leftPage = document.getElementById("pageLeft");
 const rightPage = document.getElementById("pageRight");
 
-// Розбиваємо текст на параграфи
 const paragraphs = text.trim().split(/\n\s*\n/);
 
 function fillBook() {
@@ -26,9 +25,7 @@ function fillBook() {
 
     target.appendChild(p);
 
-    // Перевірка переповнення
     if (target.scrollHeight > target.clientHeight) {
-      // Переносимо абзац на праву сторінку
       target.removeChild(p);
       target = rightPage;
       rightPage.appendChild(p);
@@ -36,7 +33,6 @@ function fillBook() {
   });
 }
 
-// Обгортаємо слова в <span class="word">
 function wrapWords(par) {
   return par
     .split(/\s+/)
@@ -46,33 +42,47 @@ function wrapWords(par) {
 
 fillBook();
 
-bookText.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("word")) return;
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("word")) {
+    const word = e.target.dataset.word;
+    const rect = e.target.getBoundingClientRect();
 
-  const word = e.target.dataset.word;
-  const rect = e.target.getBoundingClientRect();
+    tooltip.innerHTML = `
+            <div class="btn" data-action="explain" data-word="${word}">Explain</div>
+            <div class="btn" data-action="translate" data-word="${word}">Translate</div>
+        `;
 
-  tooltip.innerHTML = `
-        <div><b>${word}</b></div>
-        <div class="btn" onclick="explain('${word}')">Explain</div>
-        <div class="btn" onclick="translate('${word}')">Translate</div>
-    `;
+    tooltip.style.left = rect.left + "px";
+    tooltip.style.top = rect.top + 20 + "px";
+    tooltip.classList.remove("hidden");
+    return;
+  }
 
-  tooltip.style.left = rect.left + "px";
-  tooltip.style.top = rect.top - 40 + "px";
-  tooltip.classList.remove("hidden");
+  if (e.target.classList.contains("btn")) {
+    const action = e.target.dataset.action;
+    const word = e.target.dataset.word;
+
+    if (action === "explain") explain(word);
+    if (action === "translate") translate(word);
+
+    return;
+  }
+
+  tooltip.classList.add("hidden");
 });
 
 function explain(word) {
-  tooltip.innerHTML = `<b>${word}</b>: This is a placeholder explanation.`;
+  tooltip.innerHTML = `<b>${word}</b>: ${getExplain(word)}`;
 }
 
 function translate(word) {
-  tooltip.innerHTML = `<b>${word}</b>: переклад (демо).`;
+  tooltip.innerHTML = `<b>${word}</b>: ${getTranslate(word)}`;
 }
 
-document.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("word")) {
-    tooltip.classList.add("hidden");
-  }
-});
+function getExplain(word) {
+  return "This is a placeholder explanation.";
+}
+
+function getTranslate(word) {
+  return "переклад (демо)";
+}

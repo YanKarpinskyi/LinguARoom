@@ -42,7 +42,7 @@ body {
     width: 50%;
     height: 100%;
     overflow: hidden;
-    padding: 10px 25px;
+    padding: 10px 15px;
 }
 
 .page p {
@@ -71,10 +71,10 @@ body {
     border-radius: 6px;
     padding: 8px 12px;
     border: 1px solid #ccc;
-    pointer-events: none;
+    pointer-events: auto;
     white-space: nowrap;
     font-size: 16px;
-    z-index: 1000;
+    z-index: 999999;
 }
 
 .hidden {
