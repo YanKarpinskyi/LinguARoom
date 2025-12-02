@@ -28,7 +28,7 @@ document.getElementById("cafe-place-btn").addEventListener("click", () => {
 
     audios.forEach(audio => audio.pause());
 
-    document.body.style.backgroundImage = "url('img/girl-cafe.png')";
+    document.body.style.backgroundImage = "url('assets/img/girl-cafe.png')";
     document.body.style.backgroundSize = "cover";
     document.body.style.backgroundPosition = "center";
     document.body.style.backgroundAttachment = "fixed";
@@ -52,7 +52,7 @@ document.getElementById("cafe-place-btn").addEventListener("click", () => {
     });
 
     const source = document.createElement("source");
-    source.src = "img/place-cafe.mp4";
+    source.src = "assets/video/place-cafe.mp4";
     source.type = "video/mp4";
     newVideo.appendChild(source);
 

@@ -1,0 +1,23 @@
+{
+  "name": "LinguARoom",
+  "short_name": "App",
+  "description": "LinguARoom",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#8acef9",
+  "theme_color": "#8acef9",
+  "icons": [
+    {
+      "src": "assets/icons/logo192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/logo512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

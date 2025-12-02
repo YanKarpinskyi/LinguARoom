@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinguARoom</title>
     <link rel="stylesheet" href="./css/main.css">
+    <meta name="theme-color" content="#8acef9">
+    <link rel="icon" type="image/png" href="./assets/icons/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <video autoplay muted loop playsinline id="bg-video">
-        <source src="./img/lr-bg.mp4" type="video/mp4" id="bg">
+        <source src="./assets/video/lr-bg.mp4" type="video/mp4" id="bg">
     </video>
-    <audio src="./audio/fireplace.mp3" loop class="bg-sounds"></audio>
-    <audio src="./audio/bg-music.mp3" loop class="bg-sounds"></audio>
+    <audio src="./assets/audio/fireplace.mp3" loop class="bg-sounds"></audio>
+    <audio src="./assets/audio/bg-music.mp3" loop class="bg-sounds"></audio>
     <button class="speech-bubble" id="speak">
         Speaking
     </button>
@@ -64,8 +66,8 @@
             <div class="task-content">
                 <div class="track-manage">
                     <div class="track-on_off">
-                        <img src="./img/track.png" alt="">
-                        <button><img src="./img/track-start.png" alt=""> Start</button>
+                        <img src="./assets/img/track.png" alt="">
+                        <button><img src="./assets/img/track-start.png" alt=""> Start</button>
                     </div>
                     <div class="track-speed">
                         <button>0.5x</button>
@@ -89,19 +91,19 @@
             <div class="task-content">
                 <div class="place-choice">
                     <div class="place">
-                        <img src="./img/cafe.png" alt="">
+                        <img src="./assets/img/cafe.png" alt="">
                         <button id="cafe-place-btn">Café</button>
                     </div>
                     <div class="place">
-                        <img src="./img/airport.png" alt="">
+                        <img src="./assets/img/airport.png" alt="">
                         <button id="">Airport</button>
                     </div>
                     <div class="place">
-                        <img src="./img/office.png" alt="">
+                        <img src="./assets/img/office.png" alt="">
                         <button id="">Office</button>
                     </div>
                     <div class="place">
-                        <img src="./img/hotel.png" alt="">
+                        <img src="./assets/img/hotel.png" alt="">
                         <button id="">Hotel</button>
                     </div>
                 </div>
@@ -115,5 +117,10 @@
         }, {once: true});
     </script>
     <script src="./js/index.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("./service-worker.js");
+        }
+    </script>
 </body>
 </html>
