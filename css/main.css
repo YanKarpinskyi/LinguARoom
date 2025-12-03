@@ -277,9 +277,28 @@ body {
     color: #cc950a;
 }
 
+.grammar-variant.selected {
+    background-color: #2d6b0f !important;
+    color: #ffffff !important;
+    border-color: #5cb85c !important;
+}
+        
+.inserted-word {
+    color: #2d8a08;
+    font-weight: 700;
+    text-decoration: underline;
+}
+        
+.active-speed {
+    background-color: #2d6b0f !important;
+    color: #ffffff !important;
+    border-color: #5cb85c !important;
+}
+
 .track-on_off > button img {
     width: clamp(15px, 2vw, 20px);
     height: auto;
+    vertical-align: middle;
 }
 
 .track-speed {

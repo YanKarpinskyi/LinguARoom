@@ -63,10 +63,12 @@
             </div>
             <div class="task-content">
                 <p class="grammar-sentence">If I _____ more time, I would travel the world.</p>
-                <input type="text">
+                <input type="text" placeholder="Введіть слово...">
             </div>
         </div>
     </section>
+    
+    <!-- Listening Task -->
     <section class="task">
         <div class="task-block">
             <div class="task-header">
@@ -76,27 +78,31 @@
             <div class="task-content">
                 <div class="track-manage">
                     <div class="track-on_off">
-                        <img src="./assets/img/track.png" alt="">
-                        <button><img src="./assets/img/track-start.png" alt=""> Start</button>
+                        <img src="./assets/img/track.png" alt="Audio Track">
+                        <button>
+                            <img src="./assets/img/track-start.png" alt=""> Start
+                        </button>
                     </div>
                     <div class="track-speed">
+                        <button class="active-speed">1x</button>
                         <button>0.5x</button>
-                        <button>1x</button>
                         <button>2x</button>
                     </div>
                 </div>
             </div>
             <div class="task-content">
-                <p class="grammar-sentence">If I _____ more time, I would travel the world.</p>
-                <input type="text">
+                <p class="grammar-sentence">She went to the _____ yesterday.</p>
+                <input type="text" placeholder="Введіть слово...">
             </div>
         </div>
     </section>
+    
+    <!-- Speaking Places -->
     <section class="task">
         <div class="task-block">
             <div class="task-header">
                 <p class="task-page">1/10</p>
-                <h2 class="task-heading" id="places-heading">Circumstances where you’d like to speak</h2>
+                <h2 class="task-heading" id="places-heading">Circumstances where you'd like to speak</h2>
             </div>
             <div class="task-content">
                 <div class="place-choice">
@@ -106,15 +112,15 @@
                     </div>
                     <div class="place">
                         <img src="./assets/img/airport.png" alt="">
-                        <button id="">Airport</button>
+                        <button id="airport-place-btn">Airport</button>
                     </div>
                     <div class="place">
                         <img src="./assets/img/office.png" alt="">
-                        <button id="">Office</button>
+                        <button id="office-place-btn">Office</button>
                     </div>
                     <div class="place">
                         <img src="./assets/img/hotel.png" alt="">
-                        <button id="">Hotel</button>
+                        <button id="hotel-place-btn">Hotel</button>
                     </div>
                 </div>
                 <button class="any-place">Whatever</button>

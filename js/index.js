@@ -1,3 +1,149 @@
+// ==================== AUDIO PLAYER ====================
+let isPlaying = false;
+let currentAudio = null;
+let currentSpeed = 1;
+
+// ==================== INITIALIZATION ====================
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM loaded");
+    const backBtn = document.getElementById("back-btn");
+    console.log("Back button exists:", !!backBtn);
+    console.log("Back button computed style:", window.getComputedStyle(backBtn).display);
+    
+    // Ініціалізація аудіо плеєра та вставки слів
+    initAudioPlayer();
+    initWordInsertion();
+    
+    // Блокування орієнтації екрану
+    if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("landscape").catch(err => {
+            console.log("Orientation lock failed:", err);
+        });
+    }
+});
+
+// ==================== AUDIO PLAYER FUNCTIONS ====================
+function initAudioPlayer() {
+    const playButton = document.querySelector('.track-on_off > button');
+    const trackImage = document.querySelector('.track-on_off > img');
+    const speedButtons = document.querySelectorAll('.track-speed button');
+    
+    if (!playButton) return;
+    
+    // Створення аудіо елемента
+    currentAudio = new Audio('./assets/audio/listening-task.mp3');
+    currentAudio.playbackRate = currentSpeed;
+    
+    // Обробник кнопки Play/Pause
+    playButton.addEventListener('click', () => {
+        if (isPlaying) {
+            pauseAudio(playButton, trackImage);
+        } else {
+            playAudio(playButton, trackImage);
+        }
+    });
+    
+    // Обробники кнопок швидкості
+    speedButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            speedButtons.forEach(btn => btn.classList.remove('active-speed'));
+            button.classList.add('active-speed');
+            
+            const speed = parseFloat(button.textContent);
+            currentSpeed = speed;
+            if (currentAudio) {
+                currentAudio.playbackRate = speed;
+            }
+        });
+    });
+    
+    // Коли аудіо закінчується
+    currentAudio.addEventListener('ended', () => {
+        pauseAudio(playButton, trackImage);
+    });
+}
+
+function playAudio(button, image) {
+    if (currentAudio) {
+        currentAudio.play();
+        isPlaying = true;
+        
+        button.innerHTML = '<img src="./assets/img/track-stop.png" alt=""> Pause';
+        image.src = './assets/img/track-start.png';
+        button.style.backgroundColor = '#8B4513';
+        button.style.color = '#FFD700';
+    }
+}
+
+function pauseAudio(button, image) {
+    if (currentAudio) {
+        currentAudio.pause();
+        isPlaying = false;
+        
+        button.innerHTML = '<img src="./assets/img/track-start.png" alt=""> Start';
+        image.src = './assets/img/track.png';
+        button.style.backgroundColor = '#c7a382';
+        button.style.color = '#47370c';
+    }
+}
+
+// ==================== WORD INSERTION FUNCTIONS ====================
+function initWordInsertion() {
+    const grammarVariants = document.querySelectorAll('.grammar-variant');
+    const grammarSentences = document.querySelectorAll('.grammar-sentence');
+    const inputFields = document.querySelectorAll('.task-content > input');
+    
+    // Обробник для кнопок варіантів (перше речення)
+    if (grammarVariants.length > 0 && grammarSentences.length > 0) {
+        grammarVariants.forEach(button => {
+            button.addEventListener('click', () => {
+                const word = button.textContent.trim();
+                insertWordInSentence(grammarSentences[0], word);
+                
+                grammarVariants.forEach(btn => btn.classList.remove('selected'));
+                button.classList.add('selected');
+            });
+        });
+    }
+    
+    // Обробник для input полів
+    inputFields.forEach((inputField, index) => {
+        const sentenceIndex = index === 0 ? 1 : 2; // Друге речення для першого input
+        
+        if (inputField && grammarSentences[sentenceIndex]) {
+            inputField.addEventListener('input', (e) => {
+                const word = e.target.value.trim();
+                if (word) {
+                    insertWordInSentence(grammarSentences[sentenceIndex], word);
+                }
+            });
+            
+            inputField.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const word = e.target.value.trim();
+                    if (word) {
+                        insertWordInSentence(grammarSentences[sentenceIndex], word);
+                        e.target.style.borderBottom = '4px solid #2d8a08';
+                    }
+                }
+            });
+        }
+    });
+}
+
+function insertWordInSentence(sentenceElement, word) {
+    if (!sentenceElement) return;
+    
+    const originalText = sentenceElement.dataset.original || sentenceElement.textContent;
+    if (!sentenceElement.dataset.original) {
+        sentenceElement.dataset.original = originalText;
+    }
+    
+    const newText = originalText.replace('_____', `<span class="inserted-word">${word}</span>`);
+    sentenceElement.innerHTML = newText;
+}
+
+// ==================== NAVIGATION BUTTONS ====================
 document.getElementById("do-practice").addEventListener("click", () => {
     console.log("do-practice clicked");
     document.querySelectorAll(".speech-bubble").forEach(el => {
@@ -42,6 +188,9 @@ document.getElementById("listen").addEventListener("click", () => {
     backBtn.style.display = "flex";
     backBtn.dataset.returnTo = "bubbles";
     console.log("Back button display:", backBtn.style.display);
+    
+    // Ініціалізація аудіо плеєра при відкритті listening task
+    setTimeout(initAudioPlayer, 100);
 });
 
 document.getElementById("cafe-place-btn").addEventListener("click", () => {
@@ -93,10 +242,18 @@ document.getElementById("cafe-place-btn").addEventListener("click", () => {
     });
 });
 
+// ==================== BACK BUTTON ====================
 document.getElementById("back-btn").addEventListener("click", () => {
     console.log("back button clicked");
     const returnTo = document.getElementById("back-btn").dataset.returnTo;
     console.log("returnTo:", returnTo);
+    
+    // Зупинити аудіо при поверненні назад
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        isPlaying = false;
+    }
     
     if (returnTo === "home") {
         document.querySelectorAll(".task").forEach(task => task.style.display = "none");
@@ -146,19 +303,7 @@ document.getElementById("back-btn").addEventListener("click", () => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOM loaded");
-    const backBtn = document.getElementById("back-btn");
-    console.log("Back button exists:", !!backBtn);
-    console.log("Back button computed style:", window.getComputedStyle(backBtn).display);
-    
-    if (screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock("landscape").catch(err => {
-            console.log("Orientation lock failed:", err);
-        });
-    }
-});
-
+// ==================== PWA SUPPORT ====================
 let deferredPrompt = null;
 
 window.addEventListener('beforeinstallprompt', (e) => {
