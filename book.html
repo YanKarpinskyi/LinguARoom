@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Book</title>
+    <link rel="stylesheet" href="css/book.css">
+    <meta name="theme-color" content="#8acef9">
+    <link rel="icon" type="image/png" href="./assets/icons/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="manifest" href="./manifest.json">
+</head>
+
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="./assets/video/lr-bg.mp4" type="video/mp4" id="bg">
+    </video>
+
+    <div class="book-wrapper">
+        <div class="book">
+            <div class="page left-page" id="pageLeft"></div>
+            <div class="page right-page" id="pageRight"></div>
+        </div>
+    </div>
+
+    <!-- Підказка -->
+    <div id="tooltip" class="tooltip hidden"></div>
+
+    <script src="js/book.js"></script>
+</body>
+
+</html>
