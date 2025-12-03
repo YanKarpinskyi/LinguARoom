@@ -91,3 +91,89 @@ body {
 .tooltip .btn:hover {
     background: #ddd;
 }
+
+.back-btn {
+    position: fixed;
+    top: 2vw;
+    left: 2vw;
+    width: clamp(50px, 6vw, 70px);
+    height: clamp(50px, 6vw, 70px);
+    background-color: #4A3C2F;
+    border: 3px solid #cda094;
+    border-radius: 50%;
+    color: #f1be3b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #3F2A1B;
+    border-color: #A66B5C;
+    color: #cc950a;
+    transform: scale(1.1);
+}
+
+.back-btn:active {
+    transform: scale(0.95);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn svg {
+    width: 60%;
+    height: 60%;
+}
+
+/* ====== 1200px ====== */
+@media screen and (max-width: 1200px) {
+    .back-btn {
+        width: 60px;
+        height: 60px;
+        top: 2.5vw;
+        left: 2.5vw;
+    }
+}
+
+/* ====== 992px ====== */
+@media screen and (max-width: 992px) {
+    .back-btn {
+        width: 55px;
+        height: 55px;
+        top: 3vw;
+        left: 3vw;
+    }
+}
+
+/* ====== 768px ====== — твій варіант */
+@media screen and (max-width: 768px) {
+    .back-btn {
+        width: 50px;
+        height: 50px;
+        top: 3vw;
+        left: 3vw;
+    }
+}
+
+/* ====== 480px ====== — телефони */
+@media screen and (max-width: 480px) {
+    .back-btn {
+        width: 45px;
+        height: 45px;
+        top: 4vw;
+        left: 4vw;
+    }
+}
+
+/* ====== 360px ====== — маленькі телефони */
+@media screen and (max-width: 360px) {
+    .back-btn {
+        width: 40px;
+        height: 40px;
+        top: 5vw;
+        left: 5vw;
+    }
+}

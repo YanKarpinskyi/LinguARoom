@@ -1,7 +1,5 @@
 const text = `
-While the town of Lawrence was undergoing burning and pillage, Governor Shannon wrote to Colonel Sumner to say that as the marshal and sheriff had finished making their arrests, and he presumed had by that time dismissed the posse, he required a company of United States troops to be stationed at Lawrence to secure "the safety of the citizens in both person and property," asking also a like company for Lecompton and Topeka.
-The next day the citizens of Lawrence had the opportunity to smother their indignation when they saw the embers of the Free-State Hotel and the scattered fragments of their printing-presses patrolled and "protected" by the Federal dragoons whose presence they had vainly implored a few days before.
-It was time the Governor should move. The guerrilla bands with their booty spread over the country, and the free-State men rose in a`;
+While the town of Lawrence was undergoing burning and pillage, Governor Shannon wrote to Colonel Sumner to say that as the marshal and sheriff had finished making their arrests, and he presumed had by that time dismissed the posse, he required a company of United States troops to be stationed at Lawrence to secure "the safety of the citizens in both, person and property," asking also a like company for Lecompton and Topeka. The next day the citizens of Lawrence had the opportunity to smother their indignation when they saw the embers of the Free-State Hotel and the scattered fragments of their printing-presses patrolled and "protected" by the Federal dragoons whose presence they had vainly implored a few days before. It was time the Governor should move. The guerrilla bands with their booty spread over the country, and the free-State men rose in a spirit of fierce retaliation. Assassinations, house-burnings, expulsions, and skirmishes broke out in all quarters. The sudden shower of lawlessness fell on the just and the unjust; and, forced at last to deal out equal protection, the Governor (June 4) issued his proclamation directing military organizations to disperse, "without regard to party names, or distinctions, and empowering Colonel Sumner to enforce the order. opportunity to smother their indignation when they saw the embers of the Free-State Hotel and the scattered fragments of their printing-presses patrolled and "protected" by the Federal dragoons whose presence they had vainly implored a few days before. It was time the Governor should move. The guerrilla bands with their booty spread over the country, and the free-State men rose in a spirit of fierce retaliation. Assassinations, house-burnings, expulsions, and skirmishes broke out in all quarters. The sudden shower of lawlessness fell on the just and the unjust; and, forced at last to deal out equal protection, the Governor (June 4) issued his proclamation directing military organizations to disperse, "without regard to party names, or distinctions," and empowering Colonel Sumner to enforce the order.`;
 
 const bookText = document.getElementById("bookText");
 const tooltip = document.getElementById("tooltip");
@@ -102,4 +100,12 @@ function getExplain(word) {
 
 function getTranslate(word) {
   return "переклад (демо)";
+}
+
+const backBtn = document.getElementById("back-btn");
+if (backBtn) {
+  backBtn.addEventListener("click", () => {
+    console.log("Back button clicked in book.html");
+    window.location.href = "index.html";
+  });
 }
