@@ -369,13 +369,29 @@ body {
     color: #ffd260;
 }
 
+@media screen and (max-width: 1751px) {
+    #speak {
+        top: 2vw;
+    }
+
+    #listen {
+        top: 11vw;
+    }
+
+    #read {
+        top: 14vw;
+    }
+
+    #write {
+        top: 33vw;
+    }
+}
+
 /* Tablet styles */
 @media screen and (max-width: 1024px) {
-    .choice {
-        margin-top: 50vw;
-        flex-direction: column;
-        align-items: center;
-        gap: 3vw;
+    #test,
+    #do-practice {
+        font-size: 30px;
     }
 
     .choice > button {
@@ -385,22 +401,22 @@ body {
 
     #speak {
         top: 3vw;
-        right: 48vw;
+        right: 50vw;
     }
 
     #listen {
-        top: 15vw;
-        right: 22vw;
+        top: 12vw;
+        right: 25vw;
     }
 
     #read {
-        top: 18vw;
-        right: 8vw;
+        top: 15vw;
+        right: 10vw;
     }
 
     #write {
-        top: 45vw;
-        right: 40vw;
+        top: 34vw;
+        right: 42vw;
     }
 
     .task {
@@ -420,9 +436,9 @@ body {
 
 /* Mobile styles */
 @media screen and (max-width: 768px) {
-    .choice {
-        margin-top: 60vw;
-        padding: 0 10vw;
+    #test,
+    #do-practice {
+        font-size: 30px;
     }
 
     .choice > button {
